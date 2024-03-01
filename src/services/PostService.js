@@ -6,19 +6,26 @@ import { api } from "./AxiosService.js"
 
 function _paintPosts(drawSpecifics) {
     const posts = drawSpecifics.data.posts.map(pojos => new Post(pojos))
-    AppState.post = posts
+    AppState.posts = posts
     AppState.currentPage = drawSpecifics.data.page
     AppState.totalPages = drawSpecifics.data.totalPages
 }
 
 class PostService {
 
-
+    async sendLike(postId) {
+        // AppState.likes = null
+        // TODO this fucker aint reactive; figure out why 
+        const response = await api.post(`/api/posts/${postId}/like`)
+        const updatedPost = AppState.posts.find(foundPost => foundPost.id == postId)
+        updatedPost == response.data
+        logger.log(updatedPost)
+    }
 
 
 
     async paintPosts() {
-        const response = await api.get(`/posts`)
+        const response = await api.get(`/api/posts`)
         logger.log(response.data)
         _paintPosts(response)
     }
