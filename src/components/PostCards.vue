@@ -3,10 +3,12 @@
         <section class="row">
             <div v-for="post in posts" :key="post.id" class="col-10">
                 <div class="card text-start">
-                    <h4 class="card-title">
-                        <img class="creator-picture" :src="post.creator.picture" alt="">
-                        {{ post.creator.name }}
-                    </h4>
+                    <router-link :to="{ name: 'Profile', params: { ProfId: post.creatorId } }">
+                        <h4 role="button" class="card-title">
+                            <img class="creator-picture" :src="post.creator.picture" alt="">
+                            {{ post.creator.name }}
+                        </h4>
+                    </router-link>
                     <img class="content-picture card-img" :src="post.imgUrl" alt="Title" />
                     <button @click="sendLike(post.id)"> like button :) {{ post.likeIds }}</button>
                 </div>

@@ -1,7 +1,7 @@
 <template>
-  <div class="sidebar">
-    <Sidebar />
-  </div>
+  >
+  <Sidebar />
+
   <PostCards />
 </template>
 

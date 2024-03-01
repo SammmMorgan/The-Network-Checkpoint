@@ -1,5 +1,5 @@
 <template>
-    <p>tester</p>
+    <p class="sidebar">tester</p>
 </template>
 
 
@@ -12,4 +12,13 @@ export default {
 </script>
 
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.sidebar {
+    height: 100%;
+    width: 25%;
+    position: sticky;
+    top: 0;
+    float: left;
+    background-color: lightblue;
+}
+</style>

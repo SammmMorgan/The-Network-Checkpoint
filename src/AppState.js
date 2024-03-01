@@ -12,6 +12,7 @@ export const AppState = reactive({
   currentPage: 0,
   totalPages: 0,
 
-
+  /** @type {import('./models/Profile.js').Profile{}} */
+  currentProfile: {}
 
 })
