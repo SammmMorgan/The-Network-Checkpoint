@@ -2,6 +2,7 @@
   <nav class="navbar navbar-expand-sm navbar-dark bg-dark px-3">
     <router-link class="navbar-brand d-flex" :to="{ name: 'Home' }">
       <div class="d-flex flex-column align-items-center">
+        <p>Home button </p>
       </div>
     </router-link>
     <!-- LOGIN COMPONENT HERE -->

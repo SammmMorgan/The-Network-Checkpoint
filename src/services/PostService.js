@@ -22,6 +22,12 @@ class PostService {
         logger.log(updatedPost)
     }
 
+    async postByAccount(accountId) {
+        logger.log(accountId)
+        const response = await api.get(`/api/posts?query=${accountId}`)
+        logger.log(response.data)
+        _paintPosts(response)
+    }
 
 
     async paintPosts() {

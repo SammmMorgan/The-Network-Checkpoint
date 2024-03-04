@@ -10,6 +10,7 @@ class ProfileService {
         // logger.log(response)
         const openProfile = new Profile(response.data)
         AppState.currentProfile = openProfile
+        logger.log(AppState.currentProfile)
     }
 }
 
