@@ -1,7 +1,7 @@
 <template>
     <div class="container">
         <section class="row">
-            <div v-for="post in posts" :key="post.id" class="col-10">
+            <div v-for="post in posts" :key="post.id" class="col-10 my-2">
                 <div class="card text-start">
                     <router-link :to="{ name: 'Profile', params: { ProfId: post.creatorId } }">
                         <h4 role="button" class="card-title">
@@ -9,8 +9,9 @@
                             {{ post.creator.name }}
                         </h4>
                     </router-link>
-                    <img class="content-picture card-img" :src="post.imgUrl" alt="Title" />
-                    <button @click="sendLike(post.id)"> like button :) {{ post.likeIds }}</button>
+                    <img v-if="post.imgUrl" class="content-picture card-img" :src="post.imgUrl" alt="Title" />
+                    <p class="text-center fs-4">{{ post.body }}</p>
+                    <button @click="sendLike(post.id)"> like button :) {{ post.likeIds.length }}</button>
                 </div>
 
             </div>

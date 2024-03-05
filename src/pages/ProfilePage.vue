@@ -27,6 +27,7 @@
 
         </div>
     </div>
+    <PostCards />
 
 
     <div>
@@ -60,8 +61,8 @@ export default {
         }
         async function paintAccountPosts() {
             try {
-                debugger
-                await postService.postByAccount(profile.name)
+                const profileId = route.params.ProfId
+                await postService.postByAccount(profileId)
             } catch (error) {
                 Pop.error(error)
                 logger.error(error)
@@ -76,6 +77,7 @@ export default {
         )
         return {
             profile: computed(() => AppState.currentProfile),
+            posts: computed(() => AppState.posts)
         }
     }
 };

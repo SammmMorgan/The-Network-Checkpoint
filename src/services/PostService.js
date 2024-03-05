@@ -17,14 +17,13 @@ class PostService {
         // AppState.likes = null
         // TODO this fucker aint reactive; figure out why 
         const response = await api.post(`/api/posts/${postId}/like`)
-        const updatedPost = AppState.posts.find(foundPost => foundPost.id == postId)
-        updatedPost == response.data
+        const updatedPost = AppState.posts.findIndex(foundPost => foundPost.id == postId)
+        AppState.posts.splice(updatedPost, 1, response.data)
         logger.log(updatedPost)
     }
 
     async postByAccount(accountId) {
-        logger.log(accountId)
-        const response = await api.get(`/api/posts?query=${accountId}`)
+        const response = await api.get(`/api/posts?creatorId=${accountId}`)
         logger.log(response.data)
         _paintPosts(response)
     }
